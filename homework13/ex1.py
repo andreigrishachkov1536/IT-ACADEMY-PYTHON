@@ -15,7 +15,7 @@ while True:
                 print(f"Число принято {chislo}")
                 break
 
-        except ValueError as e:
+        except ValueError:
             print("Ошибка: введите число")
 
 
