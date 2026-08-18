@@ -45,9 +45,13 @@ def handle_errors(func):
 def divide(a, b):
     return a / b
 
-# @handle_errors
-# def convert_to_int(value):
-#     return int(value)
+@handle_errors
+def convert_to_int(value):
+    return int(value)
 
 print(divide(10, 2))
 print(divide(10, 0))
+
+
+print(convert_to_int("100"))
+print(convert_to_int("hello"))
