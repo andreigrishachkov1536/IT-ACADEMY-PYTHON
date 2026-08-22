@@ -38,7 +38,7 @@ def handle_errors(func):
         except ValueError:
             print("Значение некорректно")
         except TypeError:
-            print("Неверный тип данных")
+            print("Неверный тип данных!")
 
     return wrapper
 
