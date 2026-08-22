@@ -37,6 +37,8 @@ def handle_errors(func):
             print("Ошибка, деление на 0")
         except ValueError:
             print("Значение некорректно")
+        except TypeError:
+            print("Неверный тип данных")
 
     return wrapper
 
@@ -49,7 +51,7 @@ def divide(a, b):
 def convert_to_int(value):
     return int(value)
 
-print(divide(10, 2))
+print(divide((1,2), 2))
 print(divide(10, 0))
 
 
