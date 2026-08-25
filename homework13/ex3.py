@@ -39,6 +39,8 @@ def handle_errors(func):
             print("Значение некорректно")
         except TypeError:
             print("Неверный тип данных!")
+        except Exception as e:
+            print(e)
 
     return wrapper
 
