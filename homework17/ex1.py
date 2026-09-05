@@ -39,24 +39,24 @@ class Order:
             return f"Одинаковые заказы,заказ № {self.number} имеется в системе"
 
     def pay(self):
-        if self.status == "Оплачено":
+        if self.status == "Payed":
             raise InvalidOrderStateError(f"Заказ №{self.number} уже оплачен.")
-        if self.status == "Отменен":
+        if self.status == "Canceled":
             raise InvalidOrderStateError(f"Нельзя оплатить отмененный Заказ №{self.number}")
-        self.status = "Оплачен"
+        self.status = "Payed"
 
     def cancel(self):
-        if self.status == "Оплачен":
+        if self.status == "Payed":
             raise InvalidOrderStateError(
                 f"Нельзя отменить оплаченный заказ #{self.number}."
             )
 
-        if self.status == "отменён":
+        if self.status == "Canceled":
             raise InvalidOrderStateError(
                 f"Заказ #{self.number} уже отменён."
             )
 
-        self.status = "отменён"
+        self.status = "Canceled"
 
 
 order1 = Order(1001, 250)
