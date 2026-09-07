@@ -191,7 +191,7 @@ class Warrior:
     def attack_target(self, target):
         target.take_damage(self.attack)
 
-# --------------3 задание кусок тут--------------
+# --------------3 задание кусок тут---------------
     def __str__(self):
             return f"{self.__class__.__name__}, HP: {self.health}, ATK: {self.attack}"
 
@@ -355,9 +355,6 @@ class Army:
     @property
     def alive_members(self):
         return sum(warrior.is_alive for warrior in self.members)
-
-
-
 
 
 
