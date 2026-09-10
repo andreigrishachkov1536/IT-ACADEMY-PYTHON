@@ -1,0 +1,30 @@
+CREATE TABLE IF NOT EXISTS users (
+id INTEGER PRIMARY KEY,
+name TEXT NOT NULL,
+email TEXT UNIQUE NOT NULL
+);
+
+
+CREATE TABLE IF NOT EXISTS product (
+id INTEGER PRIMARY KEY,
+name TEXT NOT NULL,
+price DECIMAL NOT NULL,
+category TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS orders (
+	id INTEGER PRIMARY KEY,
+	user_id INTEGER,
+	total DECIMAL,
+	FOREIGN KEY (user_id) REFERENCES users(id)
+	)
+
+
+
+	CREATE TABLE IF NOT EXISTS order_items (
+order_id INTEGER NOT NULL,
+product_id INTEGER NOT NULL,
+counts INTEGER NOT NULL,
+FOREIGN KEY (order_id) REFERENCES orders(id),
+FOREIGN KEY (product_id) REFERENCES product(id)
+);

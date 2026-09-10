@@ -1,0 +1,20 @@
+SELECT
+user_id,
+COUNT(*) AS orders_count
+FROM orders
+GROUP BY user_id;
+
+SELECT
+user_id,
+sum(total) AS orders_sum
+FROM orders
+GROUP BY user_id;
+
+
+SELECT
+user_id,
+COUNT(*) AS orders_count
+FROM orders
+WHERE total>0
+GROUP BY user_id
+HAVING COUNT(*) > 1;
