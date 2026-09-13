@@ -6,7 +6,7 @@ class DiscountStrategy(ABC):
     def calculate(self, price):
         pass
 
-class RegularDiscount(DiscountStrategy):
+class RegularDiscountStrategy(DiscountStrategy):
 
     def calculate(self, price):
         return price * 0.05
