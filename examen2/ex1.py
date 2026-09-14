@@ -2,10 +2,9 @@ import copy
 import json
 #--------------1--------------
 class Warrior:
-    attack = 5
-    start_health = 30
     def __init__(self):
-        self._health = self.start_health
+        self._health = 30
+        self.attack = 5
 
     @property
     def health(self):
@@ -65,11 +64,14 @@ class Warrior:
 
 #--------------2--------------
 class Fighter(Warrior):
-    attack = 7
+    def __init__(self):
+        super().__init__()
 
 class Mage(Warrior):
-    attack = 5
-    magic = 6
+    def __init__(self):
+        super().__init__()
+        self.magic = 6
+
 
     def take_damage(self, damage):
         damage = damage - self.magic
@@ -205,39 +207,39 @@ class Army:
 
 
 
-# warrior = Warrior()
-# fighter = Fighter()
-# mage = Mage()
-# paladin = Paladin()
+warrior = Warrior()
+fighter = Fighter()
+mage = Mage()
+paladin = Paladin()
 
-# print(warrior)
-# print(fighter)
-# print(mage)
-# print(paladin)
-#
-#
-# mage.take_damage(3)
-# print(mage.health)
-#
-# mage.attack_target(warrior)
-#
-# print(warrior.health)
+print(warrior)
+print(fighter)
+print(mage)
+print(paladin)
 
 
+mage.take_damage(3)
+print(mage.health)
 
-# paladin.health = 40
-#
-# paladin.attack_target(warrior)
-#
-# print(warrior.health)
-# print(paladin.health)
-#
-# army = Army()
-#
-# army.add_members(Fighter, 2)
-# army.add_members(Mage, 2)
-# army.add_members(Paladin, 1)
-#
-# print(len(army))
-# for warrior in army:
-#     print(warrior)
+mage.attack_target(warrior)
+
+print(warrior.health)
+
+
+
+paladin.health = 40
+
+paladin.attack_target(warrior)
+
+print(warrior.health)
+print(paladin.health)
+
+army = Army()
+
+army.add_members(Fighter, 2)
+army.add_members(Mage, 2)
+army.add_members(Paladin, 1)
+
+print(len(army))
+for warrior in army:
+    print(warrior)
